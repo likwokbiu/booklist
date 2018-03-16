@@ -1,6 +1,7 @@
 <h2>Booklist</h2>
 <div>
   <% @books.each do |book| %>
+    <p>Record id: <%= book.id %></p>
     <p>Title: <%= book.title %></p>
     <p>Author: <%= book.author %></p>
     <p>Already read: <%= book.already_read %></p>

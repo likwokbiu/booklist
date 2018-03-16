@@ -1,3 +1,4 @@
+require 'json'
 class BooksController < ApplicationController
 
   def index
@@ -5,6 +6,15 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html
       format.text
+      format.json do
+        render json: @books.map  { |book|
+          {id: book.id,
+          title: book.title,
+          author: book.author,
+          already_read: book.already_read
+          }
+        }
+      end
     end
   end
 
